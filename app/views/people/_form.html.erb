@@ -1,0 +1,31 @@
+<%= simple_form_for @person do |f| %>
+    <% if @person.errors.any? %>
+        <%= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:" %>
+        <ul>
+          <% @person.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %>
+    <div class="row">
+      <div class="col-md-5">
+        <%= f.input :first_name, autofocus: true %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :job %>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <%= f.input :gender, collection: Person.genders.keys.to_a, prompt: "Select your gender"%>
+        <%= f.input :picture %>
+        <%= f.input :birthdate, as: :date %>
+        <%= f.input :bio %>
+      </div>
+    </div>
+    <div class="row">
+      <%= link_to 'Back', people_path %>
+      <%= f.button :submit %>
+    </div>
+<% end %>
+
+

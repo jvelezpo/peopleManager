@@ -1,7 +1,33 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id         :integer          not null, primary key
+#  first_name :string
+#  last_name  :string
+#  email      :string
+#  job        :string
+#  bio        :text
+#  gender     :integer
+#  birthdate  :date
+#  picture    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
+first:
+  first_name: Sebastian
+  last_name: Velez
+  email: MyString
+  job: MyString
+  bio: MyText
+  gender: 1
+  birthdate: 2016-05-31
+  picture: MyString
+
+noname:
   last_name: MyString
   email: MyString
   job: MyString
@@ -10,12 +36,39 @@ one:
   birthdate: 2016-05-31
   picture: MyString
 
-two:
+
+nolast:
   first_name: MyString
-  last_name: MyString
   email: MyString
   job: MyString
   bio: MyText
   gender: 1
   birthdate: 2016-05-31
+  picture: MyString
+
+noemail:
+  first_name: Sebastian
+  last_name: Velez
+  job: MyString
+  bio: MyText
+  gender: 1
+  birthdate: 2016-05-31
+  picture: MyString
+
+nogender:
+  first_name: Sebastian
+  last_name: Velez
+  email: MyString
+  job: MyString
+  bio: MyText
+  birthdate: 2016-05-31
+  picture: MyString
+
+nobirthdate:
+  first_name: Sebastian
+  last_name: Velez
+  email: MyString
+  job: MyString
+  bio: MyText
+  gender: 1
   picture: MyString

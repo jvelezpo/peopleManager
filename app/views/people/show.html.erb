@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= image_tag @person.picture, class: 'img-fluid' %></h3>
+      </div>
+      <div class="panel-body">
+        <p><strong><%= @person.job%></strong></p>
+        <p><%= @person.bio%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h1>
+      <%= @person.full_name.titleize %>
+      <small>Member since <%= " #{distance_of_time_in_words_to_now(@person.created_at)}" %></small>
+    </h1>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Email: </strong><%= @person.email %></li>
+      <li class="list-group-item"><strong>Gender: </strong><%= @person.gender %></li>
+      <li class="list-group-item"><strong>Birthdate: </strong><%= t(@person.birthdate) %></li>
+    </ul>
+    <%= link_to 'Back', people_path, class: 'btn btn-danger-outline ' %>
+    <%= link_to 'Edit', edit_person_path(@person), class: 'btn btn-primary-outline' %>
+    <%= link_to 'Destroy', @person, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger-outline' %>
+  </div>
+</div>
