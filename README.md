@@ -56,7 +56,7 @@ Finished in 7.721373s, 1.9427 runs/s, 5.6985 assertions/s.
 $ docker-compose build   
 ```
    
-#### Comfigure the Database
+#### Configure the Database
 ```
 $ docker-compose run web rake db:setup
 ```   
