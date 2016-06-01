@@ -38,4 +38,15 @@ class Person < ActiveRecord::Base
     age
   end
 
+  def send_created_email_to_all
+    Person.where.not(id: id).each do |person|
+      Resque.enqueue(CreatedPerson, person.id, full_name)
+    end
+  end
+
+  def send_deleted_email_to_all
+    Person.where.not(id: id).each do |person|
+      Resque.enqueue(DeletedPeople, person.id, full_name)
+    end
+  end
 end

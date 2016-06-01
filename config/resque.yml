@@ -1,0 +1,3 @@
+development: 172.17.0.3:6379
+test:        172.17.0.3:6379
+production:  redis:6379

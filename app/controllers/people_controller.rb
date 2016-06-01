@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.all.order(:first_name, :last_name).page params[:page]
+    @people = Person.order(:first_name, :last_name).page params[:page]
   end
 
   def show
@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        # @person.created_email
+        @person.send_created_email_to_all
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    # @person.deleted_email
+    @person.send_deleted_email_to_all
     respond_to do |format|
       format.html { redirect_to people_path, notice: 'Person was successfully destroyed.' }
     end

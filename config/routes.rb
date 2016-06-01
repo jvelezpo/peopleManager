@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  mount Resque::Server, at: 'resque'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

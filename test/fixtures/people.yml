@@ -27,6 +27,16 @@ first:
   birthdate: 2016-05-31
   picture: MyString
 
+second:
+  first_name: Sebastian
+  last_name: Velez
+  email: MyString
+  job: MyString
+  bio: MyText
+  gender: 1
+  birthdate: 2016-05-31
+  picture: MyString
+
 noname:
   last_name: MyString
   email: MyString
