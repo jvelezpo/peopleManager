@@ -21,11 +21,15 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-image">
-          <form class="form-inline pull-xs-right">
-            <input class="form-control" type="text" placeholder="Search">
-            <button class="btn btn-success-outline" type="submit">Search</button>
-          </form>
+        <li>
+          <%= form_tag people_path, method: 'get', class: 'form-inline' do %>
+              <%= text_field_tag :q, nil, placeholder: 'Search', autofocus: true, class: 'form-control' %>
+              <%= submit_tag :search, class: 'btn btn-success-outline' %>
+              <%= link_to 'Clear', root_path, class: 'btn btn-success-outline' if params[:q].present? %>
+          <% end %>
+        </li>
+        <li>
+
         </li>
       </ul>
     </div>

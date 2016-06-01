@@ -16,6 +16,8 @@
 #
 
 class Person < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   enum gender: [:male, :female]
 

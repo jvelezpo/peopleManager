@@ -3,7 +3,11 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.order(:first_name, :last_name).page params[:page]
+    if params[:q].present?
+      @people = Person.search(params[:q]).records.order(:first_name, :last_name).page params[:page]
+    else
+      @people = Person.order(:first_name, :last_name).page params[:page]
+    end
   end
 
   def show
